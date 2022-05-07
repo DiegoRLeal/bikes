@@ -1,9 +1,10 @@
 <h1>All offers</h1>
   <ul>
     <% @offers.each do |offer| %>
-      <li><%= offer.bike %></li>
-      <li><%= offer.localization %></li>
-      <li><%= offer.price %></li>
-      <li><%= offer.bike_condition %></li>
+      <li><strong>Bike Model: </strong><%= offer.bike %></li>
+      <li><strong>Localization: </strong><%= offer.localization %></li>
+      <li><strong>Price: </strong><%= offer.price %></li>
+      <li><strong>Condition: </strong><%= offer.bike_condition %></li>
+      <p></p>
     <% end %>
   </ul>
