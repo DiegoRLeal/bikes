@@ -8,7 +8,7 @@
 Offer.destroy_all
 10.times do
   Offer.create!(
-    bike: ['Abus (42)', 'adidas (6)', 'Nalgene (2)', 'NAMEDSport (4)', 'Oakley (28)', 'Panaracer (10)', 'Park (7)', 'Radial (6)', 'Raleigh (71)'].sample,
+    bike: ['Abus', 'Adidas', 'Nalgene', 'NAMEDSport', 'Oakley', 'Panaracer', 'Park', 'Radial', 'Raleigh'].sample,
     localization: Faker::Address.city,
     price: rand(20..100),
     bike_condition: ['new', 'used', 'under maintenance'].sample
