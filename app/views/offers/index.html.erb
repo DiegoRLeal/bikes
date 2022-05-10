@@ -20,9 +20,13 @@
           <td><%= offer.localization %></td>
           <td><%= offer.price %></td>
           <td><%= offer.bike_condition %></td>
-          <td><%= link_to 'Rent', offers_path(offer) %></td>
+          <td><%= link_to 'Rent', offers_path(offer), class:"btn btn-outline-primary" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+</div>
+
+<div class="container">
+  <%= link_to "Back", root_path, class:"btn btn-secondary" %>
 </div>
