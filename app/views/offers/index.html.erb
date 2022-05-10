@@ -1,13 +1,28 @@
 <div class="container">
-  <h1>All offers</h1>
   <p></p>
-    <ul>
+    <h1>All offers</h1>
+  <p></p>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Localization</th>
+        <th>Price</th>
+        <th>Condition</th>
+        <th>Available</th>
+      </tr>
+    </thead>
+    <tbody>
       <% @offers.each do |offer| %>
-        <li><strong>Bike Model: </strong><%= offer.bike %></li>
-        <li><strong>Localization: </strong><%= offer.localization %></li>
-        <li><strong>Price: </strong><%= offer.price %></li>
-        <li><strong>Condition: </strong><%= offer.bike_condition %></li>
-        <p></p>
+        <tr>
+          <td><%= offer.bike %></td>
+          <td><%= offer.localization %></td>
+          <td><%= offer.price %></td>
+          <td><%= offer.bike_condition %></td>
+          <td><%= link_to 'Rent', offers_path(offer) %></td>
+        </tr>
       <% end %>
-    </ul>
-  </div>
+    </tbody>
+  </table>
+</div>
