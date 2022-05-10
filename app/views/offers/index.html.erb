@@ -1,0 +1,32 @@
+<div class="container">
+  <p></p>
+    <h1>All offers</h1>
+  <p></p>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Localization</th>
+        <th>Price</th>
+        <th>Condition</th>
+        <th>Available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @offers.each do |offer| %>
+        <tr>
+          <td><%=link_to offer.bike %></td>
+          <td><%= offer.localization %></td>
+          <td>$ <%= offer.price %>,00</td>
+          <td><%= offer.bike_condition %></td>
+          <td><%= link_to 'Rent', offers_path(offer), class:"btn btn-outline-primary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <%= link_to "Back", root_path, class:"btn btn-secondary" %>
+</div>
