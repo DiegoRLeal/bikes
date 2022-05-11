@@ -3,4 +3,5 @@ class Product < ApplicationRecord
   has_many :users, through: :carts
   belongs_to :user
   has_many_attached :photos
+  validates :bike, :localization, :price, :bike_condition, presence: true
 end

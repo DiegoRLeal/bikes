@@ -17,17 +17,14 @@
       <% @products.each do |product| %>
       <tr>
         <span class="mytooltip tooltip-effect-1">
-        <td class="tooltip-item"><%= link_to product.bike, product_path(product) %></td>
+          <td class="tooltip-item"><%= link_to product.bike, product_path(product) %></td>
         <span class="tooltip-content clearfix">
-        <%# <img <%= cl_image_tag product.photos[0], height: 300, width: 400, crop: :fill, radius: 60 %>
-        <span class="tooltip-text"> <%= product.bike %> </span>
         </span>
         </span>
 
           <td><%= product.localization %></td>
           <td><%= number_to_currency product.price %></td>
           <td><%= product.bike_condition %></td>
-          <%# <td><%= product.available=true %></td>
             <% if product.available? %>
               <td><%= link_to 'Available', products_path(product), class:"btn btn-outline-primary" %></td>
             <% else %>
@@ -51,5 +48,6 @@
 </div>
 
 <div class="container mt-4">
+  <%= link_to "Create", new_product_path, class:"btn btn-primary" %>
   <%= link_to "Back", root_path, class:"btn btn-secondary" %>
 </div>
