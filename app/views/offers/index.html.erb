@@ -17,7 +17,7 @@
         <tr>
           <td><%= link_to offer.bike, offer_path(offer) %></td>
           <td><%= offer.localization %></td>
-          <td><%= number_to_currency offer.price %></td>
+        <td><%= number_to_currency offer.price %></td>
           <td><%= offer.bike_condition %></td>
             <% if offer.available? %>
               <td><%= link_to 'Available', offers_path(offer), class:"btn btn-outline-primary" %></td>
