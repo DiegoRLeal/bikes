@@ -9,17 +9,15 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
-    end
+  end
 
   def show
-    @offer = Offer.find(params[:id]
+    @offer = Offer.find(params[:id])
   end
-  
+
   private
 
   def offer_params
     params.require(:offer).permit(:bike, :localization, :price, :bike_condition)
   end
-
-
 end
