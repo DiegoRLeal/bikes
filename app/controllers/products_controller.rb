@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = policy_scope(Product).order(created_at: :desc)
+    @products = policy_scope(Product)
   end
 
   def show
@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
     authorize @product
 
     if @product.save
-      redirect_to @product, notice: "product was sucessfully created."
+      redirect_to @product, notice: "Product was sucessfully created."
     else
       render :new
     end
@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to @product, notice: "product was sucessfully updated."
+      redirect_to @product, notice: "Product was sucessfully updated."
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to products_url, notice: "product was sucessfully destroyed."
+    redirect_to products_url, notice: "Product was sucessfully destroyed."
   end
 
   private
@@ -50,6 +50,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:bike, :localization, :price, :bike_condition, :photos)
+    params.require(:product).permit(:bike, :localization, :price, :bike_condition, photos: [])
   end
 end

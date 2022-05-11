@@ -5,4 +5,34 @@ class ProductPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def show?
+    true
+  end
+
+  def create?
+    true
+  end
+
+  def new?
+    true
+  end
+
+  def update?
+    owner?
+  end
+
+  def edit?
+    owner?
+  end
+
+  def destroy?
+    owner?
+  end
+
+  private
+
+  def owner?
+    record.user == user
+  end
 end
