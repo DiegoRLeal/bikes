@@ -20,7 +20,12 @@
           <td><%= offer.localization %></td>
           <td>$ <%= offer.price %>,00</td>
           <td><%= offer.bike_condition %></td>
-          <td><%= link_to 'Rent', offers_path(offer), class:"btn btn-outline-primary" %></td>
+            <% if offer.available? %>
+              <td><%= link_to 'Rent', offers_path(offer), class:"btn btn-outline-primary" %></td>
+          <% else %>
+          <td><button type="button" class="btn btn-outline-dark" disabled>Not Available</button></td>
+          <% end %>
+
         </tr>
       <% end %>
     </tbody>

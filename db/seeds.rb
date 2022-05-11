@@ -11,6 +11,7 @@ Offer.destroy_all
     bike: ['Abus', 'Adidas', 'Nalgene', 'NAMEDSport', 'Oakley', 'Panaracer', 'Park', 'Radial', 'Raleigh'].sample,
     localization: Faker::Address.city,
     price: rand(20..100),
-    bike_condition: ['new', 'used', 'under maintenance'].sample
+    bike_condition: ['new', 'used', 'under maintenance'].sample,
+    available: ['true', 'false'].sample
   )
 end
