@@ -1,5 +1,4 @@
-<div class="container">
-  <p></p>
+<div class="container mt-4">
     <h1>All offers</h1>
   <p></p>
 
@@ -10,7 +9,7 @@
         <th>Localization</th>
         <th>Price</th>
         <th>Condition</th>
-        <th>Available</th>
+        <th>Availability</th>
       </tr>
     </thead>
     <tbody>
@@ -18,20 +17,19 @@
         <tr>
           <td><%= link_to offer.bike, offer_path(offer) %></td>
           <td><%= offer.localization %></td>
-          <td>$ <%= offer.price %>,00</td>
+          <td><%= number_to_currency offer.price %></td>
           <td><%= offer.bike_condition %></td>
             <% if offer.available? %>
-              <td><%= link_to 'Rent', offers_path(offer), class:"btn btn-outline-primary" %></td>
-          <% else %>
-          <td><button type="button" class="btn btn-outline-dark" disabled>Not Available</button></td>
-          <% end %>
-
+              <td><%= link_to 'Available', offers_path(offer), class:"btn btn-outline-primary" %></td>
+            <% else %>
+              <td><button type="button" class="btn btn-outline-dark" disabled>Not Available</button></td>
+            <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
 
-<div class="container">
+<div class="container mt-4">
   <%= link_to "Back", root_path, class:"btn btn-secondary" %>
 </div>
