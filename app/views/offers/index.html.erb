@@ -16,7 +16,7 @@
     <tbody>
       <% @offers.each do |offer| %>
         <tr>
-          <td><%=link_to offer.bike %></td>
+          <td><%= link_to offer.bike, offer_path(offer) %></td>
           <td><%= offer.localization %></td>
           <td>$ <%= offer.price %>,00</td>
           <td><%= offer.bike_condition %></td>
