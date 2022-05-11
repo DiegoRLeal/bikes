@@ -3,8 +3,8 @@
   <%= f.input :bike, label: "Your bike model" %>
   <%= f.input :localization, label: "The city where your bike is" %>
   <%= f.input :price %>
-  <%= f.input :bike_condition, as: :radio_buttons, collection: [['new'], ['used'], ['under maintence']] %> 
-  <%= f.input :photo, as: :file %>
+  <%= f.input :bike_condition, as: :radio_buttons, collection: [['new'], ['used'], ['under maintence']] %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
 <% end %>
 </div>

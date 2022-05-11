@@ -9,6 +9,8 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
+    @offer.save
+    redirect_to offer_path(@offer)
   end
 
   def show
@@ -18,6 +20,6 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:bike, :localization, :price, :bike_condition, :photos)
+    params.require(:offer).permit(:bike, :localization, :price, :bike_condition, photos: [])
   end
 end
