@@ -43,24 +43,6 @@ ActiveRecord::Schema.define(version: 2022_05_12_155138) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_carts_on_user_id"
-  end
-
-  create_table "offers", force: :cascade do |t|
-    t.string "bike"
-    t.string "localization"
-    t.integer "price"
-    t.string "bike_condition"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "available", default: true
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "bike"
     t.string "localization"
@@ -71,16 +53,6 @@ ActiveRecord::Schema.define(version: 2022_05_12_155138) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_products_on_user_id"
-  end
-
-  create_table "reservations", force: :cascade do |t|
-    t.integer "price"
-    t.bigint "cart_id", null: false
-    t.bigint "offer_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["cart_id"], name: "index_reservations_on_cart_id"
-    t.index ["offer_id"], name: "index_reservations_on_offer_id"
   end
 
   create_table "user_carts", force: :cascade do |t|
@@ -108,8 +80,6 @@ ActiveRecord::Schema.define(version: 2022_05_12_155138) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "users"
-  add_foreign_key "reservations", "carts"
-  add_foreign_key "reservations", "offers"
   add_foreign_key "user_carts", "products"
   add_foreign_key "user_carts", "users"
 end
