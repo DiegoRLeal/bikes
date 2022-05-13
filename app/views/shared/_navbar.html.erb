@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+  <div class="container-fluid" align-items-left>
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png", alt: "Bike" %>
     <% end %>
@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
@@ -17,6 +17,9 @@
           <li class="nav-item">
             <%= link_to "Bikes", products_path, class: "nav-link" %>
           </li>
+          <%= link_to user_carts_path do %>
+            <li class="nav-item fa-solid fa-cart-shopping w-120 p-3"></li>
+          <% end %>
           <li class="nav-item dropdown">
             <%= image_tag "diego.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -30,6 +33,7 @@
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
+
       </ul>
     </div>
   </div>
