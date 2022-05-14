@@ -7,18 +7,18 @@ class UserCartsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @user_cart = UserCart.new(user_cart_params)
-    authorize @user_cart
+    #authorize @user_cart
     @user_cart.product = @product
     @user_cart.user = current_user
     if @user_cart.save
-      redirect_to product_path(@user_cart.product)
+      redirect_to user_carts_path(@user_cart)
     else
       render 'products/show'
     end
   end
 
   def index
-    @products = policy_scope(Product)
+    @products = Product.all
     #@user_carts = policy_scope(UserCart)
     @user_carts = current_user.user_carts
 
