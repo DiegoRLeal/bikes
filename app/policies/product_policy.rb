@@ -14,10 +14,6 @@ class ProductPolicy < ApplicationPolicy
     true
   end
 
-  def new?
-    true
-  end
-
   def update?
     owner?
   end
