@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :products
   has_many :user_carts
+  has_many :products, through: :user_carts
 end

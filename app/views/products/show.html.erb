@@ -11,7 +11,7 @@
 
     <div class="row">
       <div class="col-sm-11">
-        <div class="panel panel-default text-left">
+        <div class="panel panel-default text-center">
           <div class="panel-body">
             <h1><%= @product.bike %></h1>
           </div>
@@ -27,6 +27,34 @@
             <h3>Condition: <%= @product.bike_condition %></h3>
           </div>
         </div>
+        <div class="row justify-content-center">
+
+
+      <div class="col-md-6 ">
+      <div class="card position-sticky top-0">
+          <div class="p-1 bg-light bg-opacity-10">
+          <%= simple_form_for [@product, @user_cart] do |f| %>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                <%= f.input :status %>
+
+
+            <br />
+            <%= f.submit "Book Now", id: "btn_book", class: "btn btn-primary" %>
+        <% end %>
+
+
+            <hr>
+            <div class="d-flex justify-content-between mb-4 small">
+              <span>TOTAL</span> <strong class="text-dark">
+                    <%= @product.price %>
+
+              </strong>
+            </div>
+                      </div>
+        </div>
+      </div>
+
     </div>
 </div>
 
