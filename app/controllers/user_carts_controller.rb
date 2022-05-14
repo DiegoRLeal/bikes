@@ -17,12 +17,15 @@ class UserCartsController < ApplicationController
   end
 
   def index
+    @products = policy_scope(Product)
     @user_cart = current_user.user_carts
+    #authorize @product
+    #authorize @user_cart
   end
 
   private
 
   def user_cart_params
-    params.require(:user_cart).permit(:status)
+    params.require(:user_cart).permit(:status, :product)
   end
 end
