@@ -24,6 +24,12 @@ class UserCartsController < ApplicationController
 
   end
 
+  def destroy
+    @user_cart = UserCart.find(params[:id])
+    @user_cart.destroy
+    redirect_to user_carts_path
+  end
+
   private
 
   def user_cart_params
