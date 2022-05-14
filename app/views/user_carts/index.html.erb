@@ -21,8 +21,8 @@
             <div class="d-flex justify-content-between mb-4 small">
               <span>TOTAL</span> <strong class="text-dark">
               <% sum = 0 %>
-              <% @products.each do |product| %>
-              <% price = product.price  %>
+              <% current_user.user_carts.each do |p| %>
+              <% price = p.product.price  %>
               <% sum+=price  %>
 
               <% end %>
