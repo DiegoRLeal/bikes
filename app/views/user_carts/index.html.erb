@@ -6,7 +6,7 @@
       <div class="col-md-6 ">
       <div class="card position-sticky top-0">
           <div class="p-1 bg-light bg-opacity-10">
-          <% @products.each do |product| %>
+          <% current_user.user_carts.products.each do |product| %>
           <div class='row'>
           <div class="card-title mb-3 image-container"> <%= cl_image_tag product.photos.first.key, height: 100, width: 125, crop: :fill, radius: 20 %> </div>
             <h6 class="card-title mb-3"><%= product.bike %> - Localization: <%= product.localization %></h6>

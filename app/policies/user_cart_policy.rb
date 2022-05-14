@@ -5,33 +5,25 @@ class UserCartPolicy < ApplicationPolicy
       scope.all
     end
 
-    def index?
-      true
-    end
-
-    def show?
-      true
-    end
-
-    def create?
-      true
-    end
-
     def new?
       true
     end
 
-    def update?
-      owner?
+    def create?
+      record.user_cart.user == user
     end
 
-    def edit?
-      owner?
-    end
+    # def update?
+    #   owner?
+    # end
 
-    def destroy?
-      owner?
-    end
+    # def edit?
+    #   owner?
+    # end
+
+    # def destroy?
+    #   owner?
+    # end
 
     private
 

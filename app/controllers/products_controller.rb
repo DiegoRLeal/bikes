@@ -6,6 +6,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @user_cart = UserCart.new
+    authorize @product
+
   end
 
   def new
@@ -14,14 +17,13 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    authorize @product
   end
 
   def create
     @product = Product.new(product_params)
-    @product.user = current_user
-
     authorize @product
-
+    @product.user = current_user
     if @product.save
       redirect_to @product, notice: "Product was sucessfully created."
     else
@@ -30,6 +32,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    authorize @product
     if @product.update(product_params)
       redirect_to @product, notice: "Product was sucessfully updated."
     else
@@ -38,6 +41,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    authorize @product
     @product.destroy
     redirect_to products_url, notice: "Product was sucessfully destroyed."
   end
@@ -46,7 +50,6 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
-    authorize @product
   end
 
   def product_params
