@@ -13,6 +13,7 @@
             </div>
             <div class="d-flex justify-content-between mb-1 small">
               <span>Subtotal $</span> <span> $<%= cart.product.price %> </span>
+              <%= link_to 'delete', user_cart_path(cart), method: :delete, data: { confirm: "Are you sure?" } %>
             </div>
             <% end %>
 
@@ -23,6 +24,7 @@
               <% @products.each do |product| %>
               <% price = product.price  %>
               <% sum+=price  %>
+
               <% end %>
               <%= sum %>
 
