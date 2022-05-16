@@ -2,7 +2,12 @@
     <h1>All products</h1>
     <p></p>
 
-  <table class="table table-striped">
+    <div class="container mt-5 mb-5">
+  <%= link_to "Create", new_product_path, class:"btn btn-primary" %>
+  <%= link_to "Back", root_path, class:"btn btn-secondary" %>
+</div>
+
+  <table class="table table-striped mb-5">
     <thead>
       <tr>
         <th>Model</th>
@@ -45,9 +50,4 @@
       <% end %>
     </tbody>
   </table>
-</div>
-
-<div class="container mt-4">
-  <%= link_to "Create", new_product_path, class:"btn btn-primary" %>
-  <%= link_to "Back", root_path, class:"btn btn-secondary" %>
 </div>

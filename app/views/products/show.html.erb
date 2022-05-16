@@ -1,6 +1,6 @@
 <div class="container mt-4 text-center">
   <div class="row">
-    <div class="col-sm-11 well">
+    <div class="col-sm-12">
       <div class="well">
         <% @product.photos.each do |photo| %>
           <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, radius: 60 %>
@@ -9,28 +9,26 @@
     </div>
   </div>
 
-    <div class="row">
-      <div class="col-sm-11">
+    <div class="row mt-4">
+      <div class="col-sm-12">
         <div class="panel panel-default text-center">
-          <div class="panel-body">
-            <h1><%= @product.bike %></h1>
-          </div>
+          <h4><%= @product.bike %></h4>
         </div>
       </div>
     </div>
 
     <div class="row">
-        <div class="col-sm-11">
+        <div class="col-sm-12 mb-4">
           <div class="well default text-left">
-            <h3><%= @product.localization %></h3>
-            <h3>Price: $<%= @product.price %></h3>
-            <h3>Condition: <%= @product.bike_condition %></h3>
+            <h5><%= @product.localization %></h5>
+            <h5>Price: $<%= @product.price %></h5>
+            <h5>Condition: <%= @product.bike_condition %></h5>
           </div>
         </div>
         <div class="row justify-content-center">
 
 
-      <div class="col-md-6 ">
+      <div class="col-sm-6">
       <div class="card position-sticky top-0">
           <div class="p-1 bg-light bg-opacity-10">
           <%= simple_form_for [@product, @user_cart] do |f| %>
@@ -38,11 +36,9 @@
                 <div class="col-md-6">
                 <%= f.hidden_field :status, value: 'pending' %>
 
-
             <br />
             <%= f.submit "Book Now", id: "btn_book", class: "btn btn-primary" %>
         <% end %>
-
 
             <hr>
             <div class="d-flex justify-content-between mb-4 small">
