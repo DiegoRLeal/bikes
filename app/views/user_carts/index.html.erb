@@ -12,15 +12,15 @@
             <h6 class="card-title mb-3"><%= cart.product.bike %> - Localization: <%= cart.product.localization %></h6>
             </div>
             <div class="d-flex justify-content-between mb-1 small">
-              <span>Subtotal $</span> <span> $<%= cart.product.price %> </span>
+              <span>Subtotal:</span> <span> $<%= cart.product.price %> </span>
               <%= link_to 'X', user_cart_path(cart), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
             </div>
             <% end %>
 
             <hr>
             <div class="d-flex justify-content-between mb-4 small">
-              <span>TOTAL</span> <strong class="text-dark">
-              <% sum = 0 %>
+              <span>TOTAL:</span> <strong class="text-dark">
+              $<% sum = 0 %>
               <% current_user.user_carts.each do |p| %>
               <% price = p.product.price  %>
               <% sum+=price  %>
@@ -29,11 +29,16 @@
               <%= sum %>
                          </strong>
             </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5 mb-4">
+    <%= link_to "Checkout", products_path, class:"btn btn-primary" %>
+    </div>
                       </div>
         </div>
       </div>
     </div>
-    <div class="container mt-4">
+
+
+    <div class="container mt-4 mb-5">
     <%= link_to "Back", products_path, class:"btn btn-secondary" %>
     </div>
   </div>
