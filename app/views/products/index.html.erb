@@ -3,51 +3,33 @@
     <p></p>
 
     <div class="container mt-5 mb-5">
-  <%= link_to "Create", new_product_path, class:"btn btn-primary" %>
-  <%= link_to "Back", root_path, class:"btn btn-secondary" %>
-</div>
-
-  <table class="table table-striped mb-5">
-    <thead>
-      <tr>
-        <th>Model</th>
-        <th>Localization</th>
-        <th>Price</th>
-        <th>Condition</th>
-        <th>Availability</th>
-      </tr>
-    </thead>
-
-    <tbody>
+      <%= link_to "Create", new_product_path, class:"btn btn-primary" %>
+      <%= link_to "Back", root_path, class:"btn btn-secondary" %>
+    </div>
+    <div class="cards">
       <% @products.each do |product| %>
-      <tr>
-        <span class="mytooltip tooltip-effect-1">
-          <td class="tooltip-item"><%= link_to product.bike, product_path(product) %></td>
-        <span class="tooltip-content clearfix">
-        </span>
-        </span>
-
-          <td><%= product.localization %></td>
-          <td><%= number_to_currency product.price %></td>
-          <td><%= product.bike_condition %></td>
-            <% if product.available? %>
-              <td><%= link_to 'Available', products_path(product), class:"btn btn-outline-primary" %></td>
-            <% else %>
-              <td><button type="button" class="btn btn-outline-dark" disabled>Not Available</button></td>
-            <% end %>
-
-            <%# if policy(product).edit? %>
-              <td><%= link_to "Edit", edit_product_path(product), class:"btn btn-outline-primary" %></td>
-            <%# end %>
-
-            <%# if policy(product).destroy? %>
-              <td><%= link_to "Delete",
-                              product,
-                              method: :delete,
-                              data: { confirm: "Are you sure?" }, class:"btn btn-outline-primary" %></td>
-            <%# end %>
-        </tr>
+        <div class="card-trip">
+        <%= cl_image_tag product.photos.first.key, :crop=>"fill"%>
+        <div class="card-trip-infos">
+        <div>
+        <h2><%= link_to product.bike, product_path(product) %></h2>
+        <p><%= product.localization %></p>
+        <% if product.available? %>
+          <%= link_to 'Available', products_path(product), class:"btn btn-outline-primary" %>
+        <% else %>
+          <td><button type="button" class="btn btn-outline-dark" disabled>Not Available</button></td>
+        <% end %>
+        <% if product.user == current_user %>
+          <%= link_to "Edit", edit_product_path(product), class:"btn btn-outline-primary" %></td>
+          <%= link_to "Delete",
+                                    product,
+                                    method: :delete,
+                                    data: { confirm: "Are you sure?" }, class:"btn btn-outline-primary" %></td>
+        <% end %>
+        </div>
+        <h2 class="card-trip-pricing">$<%= product.price %></h2>
+        </div>
+        </div>
       <% end %>
-    </tbody>
-  </table>
+    </div>
 </div>
